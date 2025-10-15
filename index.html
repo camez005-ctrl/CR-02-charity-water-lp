@@ -7,6 +7,8 @@
 
   <!-- Google Fonts as substitutes -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Link to your styles.css file for beginners -->
+  <link rel="stylesheet" href="styles.css">
 
   <style>
     /* RESET */
@@ -142,25 +144,50 @@
       color: #ffffff;
     }
 
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 768px) {
-      .hero {
-        justify-content: center;
-        text-align: center;
-        padding-left: 0;
-      }
+    /* Stack images on top of each other on the left side for beginners */
+    .umu-gallery {
+      display: flex; /* Places image column and text side by side */
+      justify-content: flex-start; /* Aligns content to the left */
+      align-items: flex-start; /* Aligns items to the top */
+      gap: 32px; /* Adds space between image column and text */
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
 
-      .hero-content {
-        padding: 1.5rem;
-        max-width: 90%;
-      }
+    .image-column {
+      display: flex;
+      flex-direction: column; /* Stacks images vertically */
+      gap: 24px; /* Adds space between images */
+      align-items: flex-start; /* Aligns images to the left */
+    }
 
-      .hero h2 {
-        font-size: 2rem;
-      }
+    .image-column img {
+      border-radius: 8px; /* Rounds corners for beginners */
+      max-width: 220px;   /* Decent size for viewing */
+      width: 100%;        /* Makes images responsive */
+      display: block;
+    }
 
-      .donation-box {
-        margin: 0 auto;
+    /* Style for the braid caption */
+    .braid-caption {
+      text-align: center;
+      font-family: 'Poppins', sans-serif; /* Proxima Nova substitute */
+      margin-top: 8px;
+      color: #fff7e1; /* Sets caption color to light yellow */
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive: stack everything vertically on small screens */
+    @media (max-width: 800px) {
+      .umu-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+      }
+      .braid-caption {
+        max-width: 90vw;
       }
     }
 
@@ -178,6 +205,38 @@
         font-size: 0.95rem;
       }
     }
+
+    /* Center the quote, set font size to 18px, use Proxima Nova substitute, and set color */
+    .quote {
+      text-align: center; /* Centers the quote text */
+      font-size: 18px;    /* Sets font size to 18px */
+      font-family: 'Poppins', sans-serif; /* Proxima Nova substitute for beginners */
+      margin-bottom: 1rem; /* Adds space below the quote */
+      color: #ffc907;      /* Sets quote color to gold */
+    }
+
+    /* New styles for the quote box */
+    .quote-box {
+      background-color: #fff7e1; /* Light cream background color */
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 0 auto; /* Centers the quote box */
+      max-width: 800px; /* Sets a max width for the quote box */
+    }
+
+    /* New styles for the water drop icon */
+    .water-drop-box {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      background-color: #ffd700;
+      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 1;
+      color: #002d72;
+    }
   </style>
 </head>
 
@@ -191,7 +250,24 @@
     </h1>
     <div class="nav-links">
       <a href="#">Connect</a>
-      <a href="#">Hand</a>
+      <!-- "Hand" text inside a small rounded yellow box with a water drop next to it -->
+      <a href="#" style="display: flex; align-items: center; gap: 6px;">
+        <!-- Rounded yellow box for "Hand" text and water drop -->
+        <span style="
+          background-color: #ffc907; 
+          color: #002d72; 
+          border-radius: 12px; 
+          padding: 4px 10px; 
+          display: flex; 
+          align-items: center; 
+          gap: 4px;
+          font-weight: 600;
+          font-family: 'Poppins', sans-serif;
+        ">
+          Hand
+          <span style="font-size: 1.1em;">💧</span>
+        </span>
+      </a>
     </div>
   </header>
 
@@ -209,6 +285,50 @@
       </div>
     </div>
   </section>
+
+  <!-- Add a simple spacer div for beginners to create space between hero and quote section -->
+  <div style="height: 40px;">
+    <!-- This empty div adds less vertical space between hero and quote section -->
+  </div>
+
+  <!-- Quote section for beginners -->
+  <section class="umu-quote-section">
+    <!-- The quote box uses a light cream background color #fff7e1 -->
+    <div class="quote-box">
+      <p class="quote">
+        “My wish is that whether it is Sourountouna or a neighboring village or all the villages in Mali or the world, 
+        that they all get clean water. My wish is that all people find peace and live easily without water difficulties.”
+        <br><span>-Umu Bouare</span>
+      </p>
+      <!-- The button is centered right below the quote -->
+      <div style="text-align: center;">
+        <button class="meet-btn">MEET UMU</button>
+      </div>
+    </div>
+  </section>
+  <!-- End of Umu Quote Section -->
+
+  <!-- Image gallery section for beginners -->
+
+<div class="umu-gallery">
+  <!-- Left image stays on the left -->
+  <div class="image-left">
+    <img src="img/imageumu.png" alt="Woman at water tap">
+  </div>
+
+  <!-- Right image and caption are grouped together -->
+  <div class="image-right" style="display: flex; flex-direction: column; align-items: center;">
+    <img src="imagebraiding.png" alt="Woman braiding hair" style="margin-bottom: 12px;">
+    <!-- Caption is now right below the image, but you can move it to the right using flex for beginners -->
+    <p class="braid-caption" style="text-align: center;">
+      Since her village now has access to safe water, she can focus on braiding hair for her business.
+    </p>
+  </div>
+</div>
+
+
+
+
 
   <!-- FOOTER -->
   <footer>
